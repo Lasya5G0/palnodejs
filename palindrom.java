@@ -1,36 +1,36 @@
+import java.util.Scanner;
+
 public class Palindrome {
     public static void main(String[] args) {
-        // Create a scanner object to read input
+        // Create a scanner object to get user input
         Scanner scanner = new Scanner(System.in);
         
         // Ask the user for input
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
         
-        // Convert the string to lowercase to make the check case-insensitive
-        input = input.toLowerCase();
+        // Remove spaces and convert the string to lowercase for uniform comparison
+        String cleanedInput = input.replaceAll("\\s", "").toLowerCase();
         
-        // Remove spaces and punctuation (if any) using regular expression
-        input = input.replaceAll("[^a-zA-Z0-9]", "");
-        
-        // Call the isPalindrome method and display the result
-        if (isPalindrome(input)) {
-            System.out.println("The string is a palindrome.");
+        // Call the method to check if the cleaned input is a palindrome
+        if (isPalindrome(cleanedInput)) {
+            System.out.println(input + " is a palindrome.");
         } else {
-            System.out.println("The string is not a palindrome.");
+            System.out.println(input + " is not a palindrome.");
         }
         
+        // Close the scanner
         scanner.close();
     }
-    
-    // Method to check if the string is a palindrome
+
+    // Method to check if a string is a palindrome
     public static boolean isPalindrome(String str) {
-        int left = 0;
-        int right = str.length() - 1;
+        int left = 0, right = str.length() - 1;
         
+        // Check characters from both ends of the string
         while (left < right) {
             if (str.charAt(left) != str.charAt(right)) {
-                return false; // Not a palindrome if characters don't match
+                return false; // If any characters don't match, it's not a palindrome
             }
             left++;
             right--;
@@ -39,3 +39,4 @@ public class Palindrome {
         return true; // If all characters match, it's a palindrome
     }
 }
+
