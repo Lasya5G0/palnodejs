@@ -46,4 +46,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Palindrome checker app listening at http://localhost:${port}`);
 });
-:
+
